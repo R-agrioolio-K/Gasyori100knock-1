@@ -1,0 +1,6 @@
+# Docker / Jupyter 関連の追跡除外
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+# tryファイル内の.jpgファイルを追跡対象外に指定
+*/try/*.jpg

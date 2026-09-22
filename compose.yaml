@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    container_name: Gasyori100knock-1
+    ports:
+      - "8888:8888" #Jupyter Lab用
+    volumes:
+      - .:/app  #カレントディレクトリをコンテナへマウント
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all #使用可能なすべてのGPUを割り当て
+              capabilities: [gpu]
+    tty: true
+    stdin_open: true

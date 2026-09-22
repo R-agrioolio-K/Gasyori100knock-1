@@ -1,6 +1,7 @@
 """Question 2: convert a BGR image to grayscale without OpenCV."""
 
 import numpy as np
+import cv2
 
 
 def BGR2GRAY(img: np.ndarray) -> np.ndarray:
@@ -17,3 +18,18 @@ def BGR2GRAY(img: np.ndarray) -> np.ndarray:
     # The small epsilon prevents values such as 254.99999999999997 for white
     # from being truncated to 254 by the conversion to uint8.
     return np.clip(np.floor(gray + 1e-10), 0, 255).astype(np.uint8)
+
+#astypeは、numpy配列のデータ型を変換するためのメソッド
+#astype(np.float)はnumpy配列のデータ型をfloat値に変換する
+#通常のimreadでは画像の画素値をuint8型で読み込む
+file_path = "../imori.jpg"
+img = cv2.imread(file_path).astype(np.float64)
+
+# グレースケール画像への変換
+gray_img = BGR2GRAY(img)
+
+# Save the result
+cv2.imwrite("Question_02.jpg", gray_img)
+#cv2.imshow("result", gray_img)
+#cv2.waitKey(0)
+#cv2.destroyAllWindows()
