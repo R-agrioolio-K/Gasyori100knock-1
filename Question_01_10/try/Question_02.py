@@ -29,7 +29,7 @@ img = cv2.imread(file_path).astype(np.float64)
 gray_img = BGR2GRAY(img)
 
 # Save the result
-cv2.imwrite("Question_02.jpg", gray_img)
+cv2.imwrite("./result/Question_02.jpg", gray_img)
 #cv2.imshow("result", gray_img)
 #cv2.waitKey(0)
 #cv2.destroyAllWindows()
