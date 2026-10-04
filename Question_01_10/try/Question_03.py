@@ -8,6 +8,7 @@ class img_Gray_Binarization:
 
     def BGR2GRAY(self):
         img = self.img
+        self.gray = None
 
         b = img[:, :, 0].copy()
         g = img[:, :, 1].copy()
@@ -23,7 +24,7 @@ class img_Gray_Binarization:
     def binarization(self, th=128):
         # 引数thは二値化するためのしきい値を示している
         if self.gray is not None:
-            img = self.gray
+            img = self.gray.copy()
         else:
             img = self.BGR2GRAY()
 
@@ -46,6 +47,7 @@ img_processor.BGR2GRAY()
 img_processor.binarization(th = 128)
 
 # 二値化画像の取り出し
+# クラス変数へ直接アクセス
 binarized_img = img_processor.binarized
 
 # 二値化画像の保存
