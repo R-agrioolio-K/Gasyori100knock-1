@@ -15,7 +15,7 @@ class all_process:
         else:
             # axis -1は何?
             img = np.expand_dism(img, axis=-1)
-            H, E, C = out.shape
+            H, W, C = out.shape
         
         # ゼロパディングを行う
         # フィルタは奇数しかありえないから2で割って切り捨てた数だけサイズを追加する
