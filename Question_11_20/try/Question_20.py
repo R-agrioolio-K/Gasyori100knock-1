@@ -11,7 +11,10 @@ print(f"H * W * C= {H*W*C}")
 
 # ヒストグラムの処理
 histgram = img.ravel()  #平坦化を行っている
+flatten = img.flatten()
 print("histgram : ",histgram)
+print(f"flatten : {flatten}")
+print(f"flatten_shape : {flatten.shape}")
 print(f"histgram_shape : {histgram.shape}")
 plt.hist(img.ravel(), bins=255, rwidth=0.8, range=(0, 255))
 plt.savefig("./result/Question_20.png")
