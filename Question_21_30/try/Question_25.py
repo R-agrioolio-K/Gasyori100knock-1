@@ -16,6 +16,7 @@ class process_class:
 
         y = np.arange(aH).repeat(aW).reshape(aH, -1)
         x = np.tile(np.arange(aW), (aH, 1))
+        # ここで少数部分が存在せず参照する画素が一意に求まるため原画像に含まれる画素のみ使われる
         y = np.round(y / ay).astype(np.int8)    #縮尺・拡大処理による原画像の参照座標を算出
         x = np.round(x / ax).astype(np.int8)    #縮尺・拡大処理により原画像の参照座標を算出
 
