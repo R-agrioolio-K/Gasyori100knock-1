@@ -2,6 +2,7 @@
 # 高周波成分のみを通す
 import cv2
 import numpy as np
+import time
 
 class process_class:
     def __init__(self, img_file_path, K = 128, L = 128, channel = 3):
@@ -85,7 +86,7 @@ class process_class:
         G[H//2:, :W//2] = _G[:H//2, W//2:]
         G[H//2:, W//2:] = _G[:H//2, :W//2]
 
-
+start_time = time.time()
 img_file_path = "../imori.jpg"
 process = process_class(img_file_path)
 process.dft()
@@ -126,6 +127,7 @@ cv2.imwrite("./result/Question_34.jpg", process.idft_img)
 cv2.imwrite("./result/Question_34_G_orig.jpg", G_orig)
 cv2.imwrite("./result/Question_34_G_after.jpg", G_after)
 
-
+end_time = time.time()
+print(f"実行時間 : {end_time - start_time:.4f} 秒")
 
         
